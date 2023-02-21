@@ -11,8 +11,8 @@ import {
   Router,
   Routes,
 } from 'react-router-dom'
-import Layout from './scenes/dashboard/layout'
-import Dashboard from './scenes/dashboard'
+import Layout from './scenes/layout/index'
+import Dashboard from './scenes/dashboard/index'
 
 const App = () => {
   const mode = useSelector((state: RootState) => state.global.mode)

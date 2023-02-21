@@ -3,10 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 type GlobalSliceType = {
   mode: PaletteMode
+  userId: string
 }
 
 const initialState: GlobalSliceType = {
   mode: 'dark',
+  userId: '63701cc1f03239b7f700000e',
 }
 
 export const globalSlice = createSlice({
