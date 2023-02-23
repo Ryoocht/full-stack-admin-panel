@@ -12,7 +12,9 @@ import salesRoutes from './routes/sales'
 
 /* DATA IMPORTS */
 import User from './models/user'
-import { dataUser } from './data/index'
+import Product from './models/product'
+import ProductStat from './models/product-stat'
+import { dataUser, dataProduct, dataProductStat } from './data/index'
 
 /* CONFIGURATION */
 dotenv.config()
@@ -41,5 +43,7 @@ mongoose
 
     /* ONLY ADD DATA ONE TIME */
     // User.insertMany(dataUser)
+    // Product.insertMany(dataProduct)
+    // ProductStat.insertMany(dataProductStat)
   })
   .catch(error => console.log(`${error} did not connect`))
