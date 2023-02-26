@@ -13,6 +13,7 @@ import {
 } from 'react-router-dom'
 import Layout from './scenes/layout/index'
 import Dashboard from './scenes/dashboard/index'
+import Products from './scenes/products/products'
 
 const App = () => {
   const mode = useSelector((state: RootState) => state.global.mode)
@@ -27,6 +28,7 @@ const App = () => {
             <Route element={<Layout />}>
               <Route path='/' element={<Navigate to='/dashboard' replace />} />
               <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/products' element={<Products />} />
             </Route>
           </Routes>
         </ThemeProvider>

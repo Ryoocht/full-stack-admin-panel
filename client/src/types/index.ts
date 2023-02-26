@@ -11,3 +11,49 @@ export interface User {
   transactions: string[]
   role: 'user' | 'admin' | 'superadmin'
 }
+
+export type ProductData = {
+  _doc: Product
+  stat: Stat
+}
+
+export interface Product {
+  _id: string
+  name: string
+  description: string
+  category: string
+  price: number
+  rating: number
+  supply: number
+  createdAt: string
+  updatedAt: string
+  __v: number
+}
+
+export interface Stat {
+  _id: string
+  productId: string
+  totalCustomers: number
+  yearlySalesTotal: number
+  yearlyTotalSoldUnits: number
+  year: number
+  createdAt: string
+  updatedAt: string
+  __v: number
+  dailyData: DailyStat[]
+  monthlyData: MonthlyStat[]
+}
+
+export interface DailyStat {
+  _id: string
+  date: string
+  totalSales: number
+  totalUnits: number
+}
+
+export interface MonthlyStat {
+  _id: string
+  month: string
+  totalSales: number
+  totalUnits: number
+}
