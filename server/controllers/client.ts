@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import Product from '../models/product'
 import ProductStat from '../models/product-stat'
+import User from '../models/user'
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
@@ -19,6 +20,15 @@ export const getProducts = async (req: Request, res: Response) => {
     )
 
     res.status(200).json(productsWithStats)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
+export const getCustomers = async (req, res) => {
+  try {
+    const customers = await User.find({ role: 'user' }).select('-password')
+    res.status(200).json(customers)
   } catch (error) {
     res.status(404).json({ message: error.message })
   }
