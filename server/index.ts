@@ -15,11 +15,13 @@ import User from './models/user'
 import Product from './models/product'
 import ProductStat from './models/product-stat'
 import Transaction from './models/transaction'
+import OverallStat from './models/overall-stat'
 import {
   dataUser,
   dataProduct,
   dataProductStat,
   dataTransaction,
+  dataOverallStat,
 } from './data/index'
 
 /* CONFIGURATION */
@@ -52,5 +54,6 @@ mongoose
     // Product.insertMany(dataProduct)
     // ProductStat.insertMany(dataProductStat)
     // Transaction.insertMany(dataTransaction)
+    // OverallStat.insertMany(dataOverallStat)
   })
   .catch(error => console.log(`${error} did not connect`))

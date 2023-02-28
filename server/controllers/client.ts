@@ -3,6 +3,7 @@ import Product from '../models/product'
 import ProductStat from '../models/product-stat'
 import User from '../models/user'
 import Transaction from '../models/transaction'
+import getCountryIso3 from 'country-iso-2-to-3'
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
@@ -71,6 +72,29 @@ export const getTransactions = async (req: Request, res: Response) => {
       transactions,
       total,
     })
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
+export const getGeography = async (req: Request, res: Response) => {
+  try {
+    const users = await User.find()
+    const mappedLocations = users.reduce((acc, { country }) => {
+      const countryISO3 = getCountryIso3(country)
+      if (!acc[countryISO3]) {
+        acc[countryISO3] = 0
+      }
+      acc[countryISO3]++
+      return acc
+    }, {})
+
+    const formattedLocations = Object.entries(mappedLocations).map(
+      ([country, count]) => {
+        return { id: country, value: count }
+      }
+    )
+    res.status(200).json(formattedLocations)
   } catch (error) {
     res.status(404).json({ message: error.message })
   }
