@@ -36,7 +36,7 @@ const Monthly = () => {
 
     const formattedData = [totalSalesLine, totalUnitsLine]
     return [formattedData]
-  }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [data])
 
   return (
     <Box m='1.5rem 2.5rem'>
@@ -89,7 +89,7 @@ const Monthly = () => {
               reverse: false,
             }}
             yFormat=' >-.2f'
-            // curve="catmullRom"
+            curve='catmullRom'
             axisTop={null}
             axisRight={null}
             axisBottom={{
