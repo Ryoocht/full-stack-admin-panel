@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ProductData, User } from '../types'
+import { GeographyData, ProductData, SalesData, User } from '../types'
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
@@ -33,11 +33,11 @@ export const api = createApi({
       }),
       providesTags: ['Transactions'],
     }),
-    getGeography: build.query<any, void>({
+    getGeography: build.query<GeographyData[], void>({
       query: () => 'client/geography',
       providesTags: ['Geography'],
     }),
-    getSales: build.query<any, void>({
+    getSales: build.query<SalesData, void>({
       query: () => 'sales/sales',
       providesTags: ['Sales'],
     }),

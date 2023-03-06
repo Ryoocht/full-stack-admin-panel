@@ -57,3 +57,29 @@ export interface MonthlyStat {
   totalSales: number
   totalUnits: number
 }
+
+export interface GeographyData {
+  id: string
+  value: number
+}
+
+export interface SalesData {
+  _id: string
+  totalCustomers: number
+  yearlySalesTotal: number
+  yearlyTotalSoldUnits: number
+  year: number
+  monthlyData: MonthlyStat[]
+  dailyData: DailyStat[]
+  salesByCategory: SalesByCategory[]
+  createdAt: string
+  updatedAt: string
+  __v: number
+}
+
+export interface SalesByCategory {
+  shoes: number
+  clothing: number
+  accessories: number
+  misc: number
+}
