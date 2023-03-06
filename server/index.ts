@@ -16,12 +16,14 @@ import Product from './models/product'
 import ProductStat from './models/product-stat'
 import Transaction from './models/transaction'
 import OverallStat from './models/overall-stat'
+import AffiliateStat from './models/affiliate-stat'
 import {
   dataUser,
   dataProduct,
   dataProductStat,
   dataTransaction,
   dataOverallStat,
+  dataAffiliateStat,
 } from './data/index'
 
 /* CONFIGURATION */
@@ -55,5 +57,6 @@ mongoose
     // ProductStat.insertMany(dataProductStat)
     // Transaction.insertMany(dataTransaction)
     // OverallStat.insertMany(dataOverallStat)
+    // AffiliateStat.insertMany(dataAffiliateStat)
   })
   .catch(error => console.log(`${error} did not connect`))
